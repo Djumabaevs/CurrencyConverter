@@ -33,6 +33,10 @@ class ViewController: UIViewController {
         let url = URL(string: "http://data.fixer.io/api/latest?access_key=5266294d492a4affa7aa06bfef673f91")
         
         let session = URLSession.shared
+        
+        let task = session.dataTask(with: url!) { (data, response, error) in
+            
+        }
     }
 }
 

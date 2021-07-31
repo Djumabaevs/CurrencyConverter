@@ -30,7 +30,9 @@ class ViewController: UIViewController {
         //Response and Data
         //Parsing and JSON serialization
         
+        let url = URL(string: "http://data.fixer.io/api/latest?access_key=5266294d492a4affa7aa06bfef673f91")
         
+        let session = URLSession.shared
     }
 }
 

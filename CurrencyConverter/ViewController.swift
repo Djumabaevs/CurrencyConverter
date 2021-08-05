@@ -48,12 +48,40 @@ class ViewController: UIViewController {
                     
                     do {
                         
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
+                        let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String, Any>
                         
                         //ASYNC
                         
                         DispatchQueue.main.async {
-                            print(jsonResponse)
+//                            print(jsonResponse["success"])
+                            
+                            if let rates = jsonResponse["rates"] as? [String : Any] {
+//                                print(rates)
+                                if let cad = rates["CAD"] as? Double {
+//                                    print(cad)
+//                                    self.cadLabel.text = String(cad)
+                                    self.cadLabel.text = "CAD: \(cad)"
+                                }
+                                if let rub = rates["RUB"] as? Double {
+                                 self.rubLabel.text = "RUB: \(rub)"
+                                }
+                                if let eur = rates["EUR"] as? Double {
+                                 self.eurLabel.text = "EUR: \(eur)"
+                                }
+                                if let btc = rates["BTC"] as? Double {
+                                 self.btcLabel.text = "BTC: \(btc)"
+                                }
+                                if let kzt = rates["KZT"] as? Double {
+                                 self.kztLabel.text = "KZT: \(kzt)"
+                                }
+                                if let usd = rates["USD"] as? Double {
+                                 self.usdLabel.text = "USD: \(usd)"
+                                }
+                                if let tr = rates["TRY"] as? Double {
+                                 self.tryLabel.text = "TRY: \(tr)"
+                                }
+
+                            }
                         }
                         
                     } catch {
